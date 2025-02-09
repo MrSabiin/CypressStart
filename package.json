@@ -1,5 +1,27 @@
 {
   "dependencies": {
-    "cypress": "^14.0.1"
+    "cypress": "^14.0.1",
+    "cypress-file-upload": "^5.0.8"
+  },
+  "name": "agilizei-study",
+  "version": "1.0.1",
+  "description": "Desenvolvendo um código para automação em Cypress com estudos da agilizei",
+  "main": "cypress.config.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MrSabiin/CypressStart.git"
+  },
+  "author": "MrSabiin",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MrSabiin/CypressStart/issues"
+  },
+  "homepage": "https://github.com/MrSabiin/CypressStart#readme",
+  "devDependencies": {
+    "chance": "^1.1.12",
+    "faker": "^6.6.6"
   }
 }
