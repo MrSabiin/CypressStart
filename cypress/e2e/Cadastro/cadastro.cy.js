@@ -1,23 +1,37 @@
-/// <references types="cypress" />
+/// <reference types="cypress" />
 
+
+let Chance = require('chance')
+let chance = new Chance()
 context('Cadastro', () => {
   it('Cadastro de usuário', () => {
+
+    // conceito de acesso a um servidor de requisições 
+    // cy.intercept()
+
+    /*cy.route('POST', '/api/1/databases/userdetails/collections/newtable?**')
+      .as('postNewTable')
+
+    cy.route('POST', '/api/1/databases/userdetails/collections/usertable?**')
+      .as('postUserTable')
+
+    cy.route('GET', '/api/1/databases/userdetails/collections/newtable?**')
+      .as('getNewTable')
+    */
+    //acessar o site
     cy.visit('https://demo.automationtesting.in/Register.html')
 
     cy.get('input[placeholder="First Name"]')
-      .type('Aluno');
+      .type(chance.first());
 
     cy.get('input[placeholder="Last Name"]')
-      .type('Agilizei');
+      .type(chance.last());
 
     cy.get('input[ng-model^=Email]')
-      .type('aluno@mail.com');
-
-    cy.get('input[placeholder="First Name"]')
-      .type('Aluno');
+      .type(chance.email())
 
     cy.get('input[ng-model^=Phone]')
-      .type('1234567890');
+      .type(chance.phone({ formatted: false }))
 
     // Radio and Checks
     cy.get('input[value^=Male]')
@@ -30,32 +44,52 @@ context('Cadastro', () => {
       .check()
 
     cy.get('input[type=checkbox]')
-    .check('Movies')
+      .check('Movies')
 
     // Dropdowns & Combos
     cy.get('select[id="Skills"]')
-    .select('Javascript')
+      .select('Javascript')
 
     // Verificar pq não está pegando o campo pelo elemento
-    cy.get('#country')
-    .select('Australia')
-    
+    cy.get('span[class=selection]')
+      .eq(0)
+      .click()
+
+    cy.wait(500);
+
+    cy.get('input[class=select2-search__field]')
+      .type('Bangladesh')
+
+    cy.get('.select2-results__option')
+      .click()
+
     cy.get('select[id^=yearbox]')
-    .select('1992')
+      .select('1992')
 
     cy.get('select[ng-model^=monthbox]')
-    .select('February')
+      .select('February')
 
     cy.get('select[id^=daybox]')
-    .select('25')
+      .select('25')
 
-    cy.get('input[id*=password]')
-    .select('Abc123')
+    cy.get('input[id^=first]')
+      .type('Abc123')
 
     cy.get('input[id^=second]')
-    .select('Abc123')
+      .type('Abc123')
 
-    //cy.get('');
+    cy.get('input[id=imagesrc]').attachFile('frase-motivadora.jpg')
+
+    cy.get('button[id=submitbtn]')
+      .click()
+
+    // chamada de requisições de rotas e eperars
+    //  cy.wait('@postNewTable').then((resNewTable) => {
+    //  console.log(resNewTable.status)
+    //  cy.log(resNewTable.status)})
+    //  expect(resNewtable.status).to.eq(200)
     
+    cy.url().should('contain', 'WebTable.html')
+
   });
 });

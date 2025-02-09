@@ -1,6 +1,7 @@
 {
   "dependencies": {
-    "cypress": "^14.0.1"
+    "cypress": "^14.0.1",
+    "cypress-file-upload": "^5.0.8"
   },
   "name": "agilizei-study",
   "version": "1.0.1",
@@ -18,5 +19,9 @@
   "bugs": {
     "url": "https://github.com/MrSabiin/CypressStart/issues"
   },
-  "homepage": "https://github.com/MrSabiin/CypressStart#readme"
+  "homepage": "https://github.com/MrSabiin/CypressStart#readme",
+  "devDependencies": {
+    "chance": "^1.1.12",
+    "faker": "^6.6.6"
+  }
 }
