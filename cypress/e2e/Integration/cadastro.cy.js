@@ -19,7 +19,7 @@ context('Cadastro', () => {
       .as('getNewTable')
     */
     //acessar o site
-    cy.visit('https://demo.automationtesting.in/Register.html')
+    cy.visit('http://demo.automationtesting.in/Register.html')
 
     cy.get('input[placeholder="First Name"]')
       .type(chance.first());
@@ -83,13 +83,15 @@ context('Cadastro', () => {
     cy.get('button[id=submitbtn]')
       .click()
 
+    
+
     // chamada de requisições de rotas e eperars
     //  cy.wait('@postNewTable').then((resNewTable) => {
     //  console.log(resNewTable.status)
     //  cy.log(resNewTable.status)})
     //  expect(resNewtable.status).to.eq(200)
     
-    cy.url().should('contain', 'WebTable.html')
+    cy.url().should('contain', 'http://demo.automationtesting.in/WebTable.html')
 
   });
 });
