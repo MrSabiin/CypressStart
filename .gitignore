@@ -128,3 +128,19 @@ dist
 .yarn/build-state.yml
 .yarn/install-state.gz
 .pnp.*
+
+#dependences
+node_modules/
+
+
+#relatórios cucumber
+cypress/reports/index.html
+cypress/reports/index.html.json
+cypress/reports/cucumber-json/**
+
+#videos
+cypress/videos
+
+#outros
+.DS_Store
+

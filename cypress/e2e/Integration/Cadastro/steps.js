@@ -3,10 +3,7 @@
 let Chance = require('chance')
 let chance = new Chance()
 
-Given(/^que acesso o site$/, () => {
-    cy.visit('http://demo.automationtesting.in/Register.html')
-   
-});
+
 
 When(/^informar meus dados$/, () => {
     cy.get('input[placeholder="First Name"]')
