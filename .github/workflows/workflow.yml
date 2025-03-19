@@ -1,0 +1,22 @@
+# Controls when the action will run. Trigger the Workflow on push or pull request.
+# events but only the master branch
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+    branches: [master]
+# A workflow run is made up of one or more jobs that can run sequentially or in a parallel
+jobs:
+  # This workflow contains a single job called "build"
+  build:
+  # The type of runner that the job will run on 
+  runs-on: ubuntu-latest
+
+  strategy:
+    matrix:
+      node-version: [14.x]
+  # Steps represent a sequence of tasks that will be executed as part of the job
+  steps: 
+  # Checks-out your repository under $GITHUB_WORKSPACE, so your job can be acess it
+  - uses: actions/checkout0v2
